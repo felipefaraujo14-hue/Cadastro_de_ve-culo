@@ -1,0 +1,33 @@
+<h1>Cadastro de Veículos</h1>
+
+<label>Modelo do veículo:</label>
+<input type="text" [(ngModel)]="modelo">
+
+<br><br>
+
+<label>Valor do serviço:</label>
+<input type="number" [(ngModel)]="valorServico">
+
+<br><br>
+
+<button (click)="cadastrar()">Cadastrar</button>
+<button (click)="limpar()">limpar</button>
+
+<hr>
+
+<h2>Veículos cadastrados</h2>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Valor Serviço</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let veiculo of listaVeiculos">
+      <td>{{ veiculo.modelo }}</td>
+      <td>{{ veiculo.valorServico | currency:'EUR' }}</td>
+    </tr>
+  </tbody>
+</table>
