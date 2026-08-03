@@ -11,7 +11,6 @@
 <br><br>
 
 <button (click)="cadastrar()">Cadastrar</button>
-<button (click)="limpar()">limpar</button>
 
 <hr>
 
@@ -22,12 +21,16 @@
     <tr>
       <th>Modelo</th>
       <th>Valor Serviço</th>
+      <th>Ações</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let veiculo of listaVeiculos">
+    <tr *ngFor="let veiculo of listaVeiculos; let i = index">
       <td>{{ veiculo.modelo }}</td>
       <td>{{ veiculo.valorServico | currency:'EUR' }}</td>
+      <td>
+        <button (click)="excluir(i)">Excluir</button>
+      </td>
     </tr>
   </tbody>
 </table>
